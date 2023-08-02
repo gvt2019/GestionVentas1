@@ -6,21 +6,33 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Security.Claims;
+using DALVentas;
+using APIVentas.Utilitarios;
+using BEVentas;
 
 namespace APIVentas.Controllers
 {
     [TokenAuthentication]
     public class DashboardController : ApiController
     {          
-        [Route("Dashboard/ListarDatos")]
+        [Route("Dashboard/ListarAsesores")]
         [HttpPost]
         
-        public IHttpActionResult ListarDatos(int v_AsesorID)
+        public IHttpActionResult ListarDatos(int gerenteID)
         {
-           
-            return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, v_AsesorID));
+            daEmpleado oEmpleado= new daEmpleado();
+           ENT_Criterios oCriterios = new ENT_Criterios();
 
-       
+            
+            oCriterios = oEmpleado.Listar_Asesores(gerenteID);
+            
+            if (oCriterios == null)
+            {
+                //oCriterios = Constantes.APIResponse.Error + Constantes.APIResponse.Separador + Constantes.APIResponse.Message.Error;
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, oCriterios));
+            }
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, oCriterios));
+                   
         }
 
     }

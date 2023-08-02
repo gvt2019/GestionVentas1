@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{011F62C5-50F8-4B36-BA27-E1CCBCB0A94B}</ProjectGuid>
+    <ProjectGuid>{7FEED0E5-78C0-4857-A922-55C8B7447F83}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DALVentas</RootNamespace>
-    <AssemblyName>DALVentas</AssemblyName>
+    <RootNamespace>BEVentas</RootNamespace>
+    <AssemblyName>BEVentas</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,16 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base.cs" />
-    <Compile Include="daEmpleado.cs" />
-    <Compile Include="daSQL.cs" />
+    <Compile Include="ENT_Criterios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BEVentas\BEVentas.csproj">
-      <Project>{7feed0e5-78c0-4857-a922-55c8b7447f83}</Project>
-      <Name>BEVentas</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,25 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using  System.Security.Claims;
-
+using APIVentas.Models;
+using System.Web.Script.Serialization;
 namespace APIVentas.Controllers
 {
+    [AllowAnonymous]
     [RoutePrefix("api/login")]
     public class LoginController : ApiController
     {
+        
+
         [HttpPost]
         [Route("login")]
+        [AllowAnonymous]       
         public IHttpActionResult Login(string userId, string password)
         {
             // Aquí implementa la lógica de autenticación.
-            // Si las credenciales son válidas, puedes generar un token JWT.
-
-            bool isAdmin = true; // Determina si el usuario es un administrador o no.
-
+            // Si las credenciales son válidas, puedes generar un token JWT.           
+            bool isAdmin = true; // Determina si el usuario es un administrador o no.             
             // Genera el token JWT.
-            string token = TokenHandler.GenerateToken(userId, "NombreUsuario", isAdmin);
-
-            return Ok(new { token });
+            string token = TokenHandler.GenerateToken(userId, "GerenteOficina", isAdmin);
+            UsuarioModel usr = new UsuarioModel();
+            usr.nombrecompleto = "Gerente de Oficina";
+            usr.access_token = token;
+            usr.idusuario = 1;
+            usr.usuario = userId;          
+            return Ok(usr);
+            
         }
 
         [HttpGet]

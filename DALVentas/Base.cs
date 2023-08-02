@@ -13,6 +13,25 @@ namespace DALVentas
     {
         //public string connectionString;
         protected string strCadenaConexionBaseSQL = ConfigurationManager.ConnectionStrings["accesoSQL"].ToString();
-              
+        public string ObtenerCadenaConexion()
+        {
+            string cadenaConexion = "";            
+            try
+            {
+                cadenaConexion = strCadenaConexionBaseSQL;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                
+            }
+
+            return cadenaConexion;
+        }
     }
 }

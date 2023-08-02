@@ -10,7 +10,7 @@ namespace APIVentas
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de Web API
-            config.Filters.Add(new TokenAuthenticationAttribute());
+            //config.Filters.Add(new TokenAuthenticationAttribute());
             // Rutas de Web API
             config.MapHttpAttributeRoutes();
 

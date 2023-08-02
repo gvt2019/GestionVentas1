@@ -2,17 +2,29 @@
 @{
     ViewBag.Title = "Dashboard";
 }
-
+@model WebVentas.ViewModels.DashboardViewModel
 <h2>Dashboard Gestion de Ventas</h2>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <p>Filtro Periodo.</p>
+            
         </div>
 
         <div class="col-md-6">
-            <p>Filtro Empleado.</p>
+            <p>Empleado.</p>
+            <p>
+                <div class="form-group">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.DropDownList("AsesorID", (SelectList)ViewBag.Asesores, "-- Seleccione un producto --")
+                        @*<input type="submit" value="Mostrar detalles" />*@
+                    }
+                    }
+                </div>
+
+            </p>
         </div>
 
     </div>

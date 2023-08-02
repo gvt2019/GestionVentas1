@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALVentas", "DALVentas\DALV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebVentas", "WebVentas\WebVentas.csproj", "{DD86F9B6-E477-4395-B3CC-E9E3F8102028}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{9867F139-E554-41F2-A733-D262FE8EF157}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BEVentas", "BEVentas\BEVentas.csproj", "{7FEED0E5-78C0-4857-A922-55C8B7447F83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,10 @@ Global
 		{DD86F9B6-E477-4395-B3CC-E9E3F8102028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD86F9B6-E477-4395-B3CC-E9E3F8102028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD86F9B6-E477-4395-B3CC-E9E3F8102028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FEED0E5-78C0-4857-A922-55C8B7447F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEED0E5-78C0-4857-A922-55C8B7447F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEED0E5-78C0-4857-A922-55C8B7447F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEED0E5-78C0-4857-A922-55C8B7447F83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
