@@ -71,9 +71,9 @@ namespace WebVentas.Controllers
                 {
                     oDashboardViewModel.oIndicador = jsSerializer.Deserialize<ENT_Indicadores>(result);
 
-
-                    ViewBag.objetivo = oDashboardViewModel.oIndicador.Objetivo;
-                    ViewBag.acumulado = oDashboardViewModel.oIndicador.Acumulado;
+                    View(oDashboardViewModel);
+                    //ViewBag.objetivo = oDashboardViewModel.oIndicador.Objetivo;
+                    //ViewBag.acumulado = oDashboardViewModel.oIndicador.Acumulado;
 
                 }
 

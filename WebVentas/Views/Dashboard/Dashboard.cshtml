@@ -9,17 +9,16 @@
     <div class="row">
         <div class="col-md-6">
             <p>Filtro Periodo.</p>
-            
+            <p>AGOSTO 2023.</p>
         </div>
 
         <div class="col-md-6">
-            <p>Empleado.</p>
+            <p ><b>Asesor</b></p>
             <p>
                 <div class="form-group">
                     @using (Html.BeginForm())
                     {
-                        @Html.DropDownList("AsesorID", (SelectList)ViewBag.Asesores, "-- Seleccione un producto --")
-                        @*<input type="submit" value="Mostrar detalles" />*@
+                        @Html.DropDownList("AsesorID", (SelectList)ViewBag.Asesores, "-- Seleccione un producto --")                        
                     }
                     }
                 </div>
@@ -30,7 +29,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <p>Indicadores</p>
+            <h4>Indicadores</h4>
         </div>
 
         
@@ -38,26 +37,22 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <p>Objetivo</p>
+            <p><b>Objetivo</b></p>
             <p>
-                @{
-                    ViewBag.objetivo;
-                }
+               @Model.oIndicador.Objetivo;
             </p>
         </div>
         <div class="col-md-3">
-            <p>Acumulado</p>
+            <p><b>Acumulado</b></p>
             <p>
-                @{
-                    ViewBag.acumulado;
-                }
+                @Model.oIndicador.Acumulado;
             </p>
         </div>
         <div class="col-md-3">
-            <p>Indicador 3.</p>
+            <p><b>Indicador 3</b></p>
         </div>
         <div class="col-md-3">
-            <p>Indicador 4</p>
+            <p><b>Indicador 4 </b></p>
         </div>
     </div>
 
