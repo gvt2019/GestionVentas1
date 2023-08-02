@@ -17,6 +17,7 @@ namespace WebVentas.Controllers
         public ActionResult Dashboard()
         {
             ListarAsesores();
+            ObtenerDashboard(2, "20230801");
             return View();
         }
         public JsonResult ListarAsesores()
@@ -50,39 +51,31 @@ namespace WebVentas.Controllers
             }
             return null;
         }
-        public JsonResult ObtenerDashboard(string strPeriodo = "", string strMesesHistorico = "", string strTipo = "DUR", string strCodint = "", string strCodempleado = "", string strDifMinutos = "0", string presExterno = "-1")
+        public JsonResult ObtenerDashboard(int asesorID , string periodo)
         {
-            //ComunicacionesCalidadModel ojbComunicaciones = new ComunicacionesCalidadModel();
+            
             try
             {
                 ApiHelpers apih = new ApiHelpers();
                 List<parameter> lsParametros = new List<parameter>();
                 JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
                 jsSerializer.MaxJsonLength = 500000000;
+                DashboardViewModel oDashboardViewModel = new DashboardViewModel();
+                lsParametros.Add(new parameter { Name = "asesorID", value = asesorID.ToString() });
+                lsParametros.Add(new parameter { Name = "periodo", value = periodo.ToString() });
 
-                //string idcliente = (SessionPersister.IdCliente != null ? SessionPersister.IdCliente : "0");
-                //string idusuario = SessionPersister.IdUsuario;
-
-                //lsParametros.Add(new parameter { Name = "v_IdCliente", value = idcliente.ToString() });
-                //lsParametros.Add(new parameter { Name = "strIdUsuario", value = idusuario.ToString() });
-                //lsParametros.Add(new parameter { Name = "strPeriodo", value = strPeriodo.ToString() });
-                //lsParametros.Add(new parameter { Name = "strMeses", value = strMesesHistorico.ToString() });
-                //lsParametros.Add(new parameter { Name = "strTipo", value = strTipo.ToString() });
-                //lsParametros.Add(new parameter { Name = "strCodint", value = strCodint.ToString() });
-                //lsParametros.Add(new parameter { Name = "strCodempleado", value = strCodempleado.ToString() });
-                //lsParametros.Add(new parameter { Name = "strDifMinutos", value = strDifMinutos.ToString() });
-                //lsParametros.Add(new parameter { Name = "prEsExterno", value = presExterno.ToString() });
-
-                //string v_IdCliente, string strFechaInicio, string strFechaFin, string strCodint, string strCodempleado
-
-                string result = apih.CallApiMethod(true, "post", "Dashboard/ListarDashComunicacionesCalidad", lsParametros);
+                string result = apih.CallApiMethod(true, "post", "Dashboard/ListarIndicadores", lsParametros);
 
 
                 if (result != "")
                 {
-                    //ojbComunicaciones = jsSerializer.Deserialize<ComunicacionesCalidadModel>(result);
-                }
+                    oDashboardViewModel.oIndicador = jsSerializer.Deserialize<ENT_Indicadores>(result);
 
+
+                    ViewBag.objetivo = oDashboardViewModel.oIndicador.Objetivo;
+                    ViewBag.acumulado = oDashboardViewModel.oIndicador.Acumulado;
+
+                }
 
 
             }
@@ -90,11 +83,9 @@ namespace WebVentas.Controllers
             {
 
 
-            }
-            //return Json(ojbComunicaciones);
-
+            }           
             return null;
-            //return Json(modelDashBoard);
+            
         }
     }
 }

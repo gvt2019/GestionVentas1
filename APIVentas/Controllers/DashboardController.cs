@@ -22,7 +22,6 @@ namespace APIVentas.Controllers
         {
             daEmpleado oEmpleado= new daEmpleado();
            ENT_Criterios oCriterios = new ENT_Criterios();
-
             
             oCriterios = oEmpleado.Listar_Asesores(gerenteID);
             
@@ -33,6 +32,25 @@ namespace APIVentas.Controllers
             }
             return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, oCriterios));
                    
+        }
+
+        [Route("Dashboard/ListarIndicadores")]
+        [HttpPost]
+
+        public IHttpActionResult ListarIndicadores(int asesorID,string periodo)
+        {
+            daDashboard oDashboard = new daDashboard();
+            ENT_Indicadores oIndicador = new ENT_Indicadores();
+
+            oIndicador = oDashboard.listar_indicadores(asesorID,periodo);
+
+            if (oIndicador == null)
+            {
+                //oCriterios = Constantes.APIResponse.Error + Constantes.APIResponse.Separador + Constantes.APIResponse.Message.Error;
+                return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, oIndicador));
+            }
+            return ResponseMessage(Request.CreateResponse(HttpStatusCode.OK, oIndicador));
+
         }
 
     }

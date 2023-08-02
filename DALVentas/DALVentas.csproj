@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base.cs" />
+    <Compile Include="daDahsboard.cs" />
     <Compile Include="daEmpleado.cs" />
     <Compile Include="daSQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
